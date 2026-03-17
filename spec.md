@@ -11,7 +11,7 @@ Reddit과 유사한 커뮤니티 기반 소셜 플랫폼을 개발한다.
 |------|------|
 | Backend | Spring Boot 4.0.3, Spring Data JPA, H2 (개발) / PostgreSQL (운영) |
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS |
-| 인증 | JWT (Access Token + Refresh Token) |
+| 인증 | JWT (Access Token + Refresh Token) + OAuth2 (소셜 로그인, 별도 Phase) |
 | API | REST |
 
 ### 1.3 프로젝트 구조
@@ -292,7 +292,7 @@ Comment ─── (1:N) ─── Vote
 
 #### 로그인 / 회원가입 — 모달
 - 페이지 이동 없이 오버레이 모달로 표시 (Reddit 방식)
-- 로그인: 이메일/비밀번호, 소셜 로그인 UI (기능은 Phase 2)
+- 로그인: 이메일/비밀번호, 소셜 로그인 UI (기능은 Phase 2.5)
 - 회원가입: 이메일 → 사용자명 → 비밀번호 단계별 입력
 
 ### 5.4 컴포넌트 목록
@@ -354,6 +354,7 @@ Comment ─── (1:N) ─── Vote
 - [ ] 프로필 페이지
 
 ### Phase 3 — 고도화
+- [ ] OAuth2 소셜 로그인 (Google, Kakao)
 - [ ] 이미지 업로드 (게시글)
 - [ ] 커뮤니티 운영자(Moderator) 권한
 - [ ] 알림 시스템

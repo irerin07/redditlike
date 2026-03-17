@@ -119,6 +119,27 @@ irerin-web/
 
 ---
 
+## Phase 2.5 — OAuth2 소셜 로그인
+
+> 목표: Google/Kakao 소셜 로그인 연동
+
+### Backend
+- [ ] `User` 엔티티에 `provider` (AuthProvider enum), `providerId` 필드 추가
+- [ ] `CustomOAuth2UserService` — 소셜 계정 연동 또는 신규 가입
+- [ ] `OAuth2AuthenticationSuccessHandler` — JWT 발급 후 `/oauth2/callback?token=xxx` 리다이렉트
+- [ ] `OAuth2AuthenticationFailureHandler`
+- [ ] `SecurityConfig` `.oauth2Login()` 활성화
+- [ ] `application.yml` OAuth2 클라이언트 설정
+
+### Frontend
+- [ ] AuthModal에 소셜 로그인 버튼 (Google, Kakao)
+- [ ] `/oauth2/callback` 페이지 — 토큰 파싱 → authStore 저장 → 홈 리다이렉트
+
+### 완료 기준
+- Google 로그인 버튼 클릭 → 인증 → 아바타 표시
+
+---
+
 ## Phase 3 — 커뮤니티
 
 > 목표: 커뮤니티 생성, 조회, 가입/탈퇴

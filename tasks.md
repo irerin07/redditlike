@@ -46,6 +46,24 @@
 
 ---
 
+## Phase 2.5 — OAuth2 소셜 로그인
+
+### Backend
+- [ ] `User` 엔티티에 `provider` (LOCAL/GOOGLE/KAKAO/NAVER), `providerId` 필드 추가
+- [ ] `CustomOAuth2UserService` 작성 — OAuth2 사용자 정보 수신 → DB User 조회/생성
+- [ ] `OAuth2AuthenticationSuccessHandler` — 인증 성공 시 JWT 발급 후 프론트 리다이렉트
+- [ ] `OAuth2AuthenticationFailureHandler` — 인증 실패 처리
+- [ ] `SecurityConfig`에 `.oauth2Login()` 활성화
+- [ ] `application.yml`에 OAuth2 클라이언트 설정 (Google, Kakao 등)
+- [ ] `AuthProvider` enum 작성 (`LOCAL`, `GOOGLE`, `KAKAO`, `NAVER`)
+
+### Frontend
+- [ ] AuthModal에 소셜 로그인 버튼 추가 (Google, Kakao)
+- [ ] OAuth2 콜백 처리 페이지 (`app/(auth)/oauth2/callback/page.tsx`)
+  - URL 쿼리 파라미터에서 `?token=` 추출 → authStore에 저장
+
+---
+
 ## Phase 3 — 커뮤니티
 
 ### Backend
